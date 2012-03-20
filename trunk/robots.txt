@@ -1,0 +1,29 @@
+User-agent: *
+
+Allow: /
+
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: Adsbot-Google
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: ia_archiver-web.archive.org
+Disallow: /
+
+Disallow: /Adm/
+Disallow: /Usuarios/
+Disallow: /Alunos/
+Disallow: /Professores/
+Disallow: /Uploads/
+Disallow: /fckeditor/
+Disallow: /Arquivos/
+
+# Arquivos Sitemap
+Sitemap: http://www.jardsonbrito.com.br/sitemap.xml
