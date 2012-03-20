@@ -1,0 +1,207 @@
+#principalLogin {
+    margin: 0 auto;
+    text-align: center;
+    font: normal 12px arial, helvetica, sans-serif;
+}
+#principalLogin a 
+{
+    text-decoration: underline;
+}
+
+#principalLogin a:hover 
+{
+    text-decoration: none;
+}
+#principalLogin #formWrapper {
+    width: 450px;
+    margin: 0 auto;
+    min-width: inherit;
+    padding: 0px 20px 10px 20px;
+    text-align: left;  
+}
+#principalLogin .ajuda 
+{
+    font-size: 8pt;
+}
+#principalLogin #formCasing {
+    background: url("images/login/login-case.png") no-repeat top left;
+    padding: 20px 35px 1px 27px;
+    /* Give content layout to fix IE7 bug with 100% width tables  */
+    zoom: 1.0;
+}
+#principalLogin #formFooter {
+    background: url("images/login/login-footer.png") no-repeat top left;
+    height: 18px;
+}
+
+#principalLogin dl {
+    margin: 15px 0;
+}
+#principalLogin dt {
+    float: left;
+    width: 80px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #a5a5a5;
+    padding-top: 5px;
+}
+#principalLogin dd {
+    margin: 0 0 10px 90px;
+    font-size: 12px;
+    line-height: 24px;
+    color: #a5a5a5;
+    margin-left: 80px;
+}
+#principalLogin dd span {
+    color: #ccc;
+}
+#principalLogin h1 {
+    font-size: 24px;
+    margin: 7px 0 8px 0;
+    padding: 0 0 12px 0;
+    text-align: left;
+    line-height: 26px;
+    padding: 12px 0 12px 0 !ie;
+}
+#principalLogin h2 {
+    font-size: 14px;
+    color: #2ba02c;
+}
+
+#principalLogin .input_username {
+    font-size: 14px;
+    padding: 8px 5px;
+    font: normal 14px arial, helvetica, sans-serif;
+    border: 1px solid #dcdcdc;
+    color: #444;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    width: 240px;
+}
+#principalLogin .input_password {
+    font-size: 14px;
+    padding: 8px 5px;
+    font: normal 14px arial, helvetica, sans-serif;
+    border: 1px solid #dcdcdc;
+    color: #444;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    width: 120px;
+    margin-right: 5px;
+}
+#principalLogin input.input:focus {
+    border: 1px solid #bfbfbf;
+    outline: none;
+}
+#principalLogin input.button {
+    padding: 0;
+    vertical-align: middle;
+}
+#principalLogin input#username {
+    width: 280px;
+}
+#principalLogin input#password {
+    width: 150px;
+    margin-right: 5px;
+}
+#principalLogin input#emailpassword {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+#principalLogin input#forgot {
+    width: 280px;
+}
+#principalLogin input.checkbox {
+    border: 0;
+    padding: 0;
+}
+#principalLogin p {	
+    margin-bottom: 18px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 18px;
+}
+#principalLogin p em {
+    font-style: italic;
+    color: #a1a1a1;
+}
+#principalLogin p.success {
+    color: #12863b;
+    padding-bottom: 5px;
+}
+#principalLogin p.error {
+    color: #cc2a2a;
+    padding-bottom: 5px;
+    background: url("images/login/alert-failure.gif") no-repeat 14px 14px;
+    padding: 14px 14px 0px 35px;
+    font-size: 8pt;
+}
+#principalLogin p.extraPad {
+    margin-bottom: 30px;
+}
+#principalLogin #successBig {
+    background: #e1ffd1;
+    border-top: 1px solid #c5f8ac;
+    border-bottom: 1px solid #c5f8ac;
+    margin: 0 0 50px 0;
+    padding: 5px 20px 15px 20px;
+    text-align: left;
+}
+#principalLogin #successBig h1 {
+    padding: 10px 0 3px 0;
+    text-align: left;
+    font-size: 20px;
+    color: #000;
+}
+#principalLogin #successBig h2 {
+    font-size: 16px;
+    padding: 8px 10px;
+    margin: 5px 0 15px 0;
+    text-align: left;
+    background: #c4edaf;
+}
+#principalLogin #successBig p {
+    color: #535e51;
+    padding: 0 0 10px 0;
+    margin: 0;
+}
+#principalLogin #failure {
+    background: #ffd1d1 url("alert-failure.gif") no-repeat 13px 11px;
+    border-top: 1px solid #f8acac;
+    border-bottom: 1px solid #f8acac;
+    margin: 0;
+    padding: 10px 10px 10px 35px;
+}
+#principalLogin #failure h3 {
+    color: #8d3f3f;	
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+#principalLogin #desenvolvedor 
+{
+    text-align: center;
+}
+#principalLogin .failureMessage {
+    background: #fff1f1;
+    border-bottom: 1px solid #fddcdc;
+    padding: 15px 20px 5px 20px;
+    color: #664b4b;
+    margin-bottom: 30px;
+}
+#principalLogin .clearButton {
+    clear: both; 
+    height: 1px;
+    text-overflow: none;
+}
+#principalLogin span.formcancel {
+    display: block;
+    width: 60px;
+    padding-top: 8px;
+    float: left;
+    color: #999;
+}

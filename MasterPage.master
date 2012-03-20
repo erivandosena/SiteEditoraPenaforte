@@ -1,0 +1,221 @@
+﻿<%@ master language="C#" autoeventwireup="true" inherits="MasterPage, App_Web_dgcc4pbx" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Bem-vindo</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <!--[if IE 6]>
+    <script src="/Scripts/DD_belatedPNG_0.0.8a.js" type="text/javascript"></script>
+    <script>
+      /* Exemplo de utilizacao */
+      DD_belatedPNG.fix('.png_bg');
+    </script>
+    <![endif]-->
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <!-- start header -->
+    <div id="header">
+        <div id="menu">
+            <ul>
+                <li>
+                    <div id="blogo" class="png_bg">
+                        <a href="http://<%= Request.Url.Authority %>">
+                            <asp:Image ID="ImageLogo" runat="server" BorderWidth="0px" /></a>
+                    </div>
+                </li>
+                <li>
+                    <div id="b1" class="png_bg">
+                        <div class="espacomenu">
+                            <a href="/Default.aspx">Principal</a></div>
+                    </div>
+                </li>
+                <li>
+                    <div id="b2" class="png_bg">
+                        <div class="espacomenu">
+                            <!-- // -->
+                            <a href="/Escritor.aspx">Obras do Autor</a>
+                        </div>
+                    </div>
+                </li>
+                <!-- atualização 17-01-2011
+                <li>
+                    <div id="b3" class="png_bg">
+                        <div class="espacomenu">
+                        //
+                        </div>
+                    </div>
+                </li>
+                -->
+                <li>
+                    <div id="b4" class="png_bg">
+                        <div class="espacomenu">
+                            <a href="/Contato.aspx">Contato</a></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- end header -->
+    <!-- start page -->
+    <div id="page">
+        <!-- start content -->
+        <div id="content">
+        <div align="right"><asp:Label ID="lblUsuOnLine" runat="server" Font-Size="8pt" 
+                ForeColor="#619C02"></asp:Label></div>
+            <!-- start post -->
+            <div class="post">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <!-- end post -->
+        </div>
+        <!-- end content -->
+        <!-- start sidebar -->
+        <div id="sidebar">
+            <ul>
+                <li id="calendar">
+                    <ul>
+                        <asp:DataList ID="DataList1" runat="server" DataSourceID="DsLinksEsquerdo" RepeatDirection="Vertical"
+                            ShowFooter="False" ShowHeader="False" EnableViewState="False">
+                            <ItemTemplate>
+                                <li><a href="<%# Eval("pag_cod", "/Conteudo.aspx?pag={0}") %>" title="<%# Eval("pag_descricao") %>">
+                                    <%# Eval("pag_nome")%></a></li>
+                            </ItemTemplate>
+                        </asp:DataList>
+                    </ul>
+                </li>
+            </ul>
+            <asp:ObjectDataSource ID="DsLinksEsquerdo" runat="server" SelectMethod="SelecionaPaginasDs"
+                TypeName="Rwd.BLL.BusinessLogic" OldValuesParameterFormatString="original_{0}">
+                <SelectParameters>
+                    <asp:Parameter DefaultValue="0" Name="pag_cod" Type="Int32" />
+                    <asp:Parameter DefaultValue="%" Name="pag_nome" Type="String" />
+                    <asp:Parameter DefaultValue="ESQUERDO" Name="pag_menu" Type="String" />
+                </SelectParameters>
+            </asp:ObjectDataSource>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+            </asp:ContentPlaceHolder>
+            <p>
+            </p>
+
+    
+<div align="center" style="width: 250px;" >
+
+    <asp:ImageButton ID="ImageButton1" runat="server" AlternateText="Downloads" 
+        BorderWidth="0px" ImageUrl="~/images/download.gif" 
+        onclick="ImageButton1_Click" />
+		
+		 <!-- <img src="images/download.gif" border="0"/> -->
+		 
+</div>
+            
+        </div>
+        <!-- end sidebar -->
+        <!-- start menu rodape -->
+        <div style="clear: both;">
+            <div id="menurodape">
+                <asp:DataList ID="DataList2" runat="server" DataSourceID="DsLinksRodape" RepeatDirection="Horizontal"
+                    EnableViewState="False" ShowFooter="False" ShowHeader="False" RepeatLayout="Flow">
+                    <ItemTemplate>
+                        <a href="<%# Eval("pag_cod", "/Conteudo.aspx?pag={0}") %>" title="<%# Eval("pag_descricao") %>"
+                            class="hmenu2">
+                            <%# Eval("pag_nome")%></a><img src="/images/smenu.gif" width="19" height="13" border="0">
+                    </ItemTemplate>
+                </asp:DataList>
+
+                <a href="<%= "http://webmail." + Request.Url.Authority.ToString().Replace("www.","") %>" title="WebMail" class="hmenu2" target="_blank">Webmail</a>
+                
+                <img src="/images/smenu.gif" width="19" height="13" border="0">
+                
+                <asp:LoginView ID="LoginView1" runat="server">
+                                <RoleGroups>
+                                    <asp:RoleGroup Roles="Administrador,Aluno">
+                                        <ContentTemplate>
+                                            <a href="/Login.aspx">Login Professor</a>
+                                        </ContentTemplate>
+                                    </asp:RoleGroup>
+                                    <asp:RoleGroup Roles="Professor">
+                                        <ContentTemplate>
+                                            <a href="/Professores/Default.aspx"><font size="2">Login Professor</font></a><asp:LoginStatus
+                                                ID="LoginStatus1" runat="server" LogoutText="(Sair)" LogoutAction="Redirect"
+                                                LogoutPageUrl="Default.aspx" LoginText="" />
+                                        </ContentTemplate>
+                                    </asp:RoleGroup>
+                                </RoleGroups>
+                                <AnonymousTemplate>
+                                    <a href="/Login.aspx">Login Professor</a>
+                                </AnonymousTemplate>
+                 </asp:LoginView>
+                 
+                 <img src="/images/smenu.gif" width="19" height="13" border="0">
+                 
+                 <asp:LoginView ID="LoginView2" runat="server">
+                                <RoleGroups>
+                                    <asp:RoleGroup Roles="Administrador,Professor">
+                                        <ContentTemplate>
+                                            <a href="/Login.aspx">Login Aluno</a>
+                                        </ContentTemplate>
+                                    </asp:RoleGroup>
+                                    <asp:RoleGroup Roles="Aluno">
+                                        <ContentTemplate>
+                                            <a href="/Alunos/Default.aspx"><font size="2">Login Aluno</font></a><asp:LoginStatus
+                                                ID="LoginStatus2" runat="server" LogoutText="(Sair)" LogoutAction="Redirect"
+                                                LogoutPageUrl="Default.aspx" LoginText="" />
+                                        </ContentTemplate>
+                                    </asp:RoleGroup>
+                                </RoleGroups>
+                                <AnonymousTemplate>
+                                    <a href="/Login.aspx">Login Aluno</a>
+                                </AnonymousTemplate>
+                 </asp:LoginView>
+                 
+                 <img src="/images/smenu.gif" width="19" height="13" border="0">
+                 
+                <asp:LoginView ID="LoginView3" runat="server">
+                    <RoleGroups>
+                        <asp:RoleGroup Roles="Professor,Aluno">
+                            <ContentTemplate>
+                                <a href="/Login.aspx" class="hmenu2">Área Restrita</a>
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                        <asp:RoleGroup Roles="Administrador">
+                            <ContentTemplate>
+                                <a href="/Adm/Default.aspx" class="hmenu2"><font size="1">Área Restrita</font></a><asp:LoginStatus
+                                    ID="LoginStatus3" runat="server" LogoutText="(Sair)" LogoutAction="Redirect"
+                                    LogoutPageUrl="Default.aspx" LoginText="" />
+                            </ContentTemplate>
+                        </asp:RoleGroup>
+                    </RoleGroups>
+                    <AnonymousTemplate>
+                        <a href="/Login.aspx" class="hmenu2">Área Restrita</a>
+                    </AnonymousTemplate>
+                </asp:LoginView>
+                
+                <asp:ObjectDataSource ID="DsLinksRodape" runat="server" SelectMethod="SelecionaPaginasDs"
+                    TypeName="Rwd.BLL.BusinessLogic" OldValuesParameterFormatString="original_{0}">
+                    <SelectParameters>
+                        <asp:Parameter DefaultValue="0" Name="pag_cod" Type="Int32" />
+                        <asp:Parameter DefaultValue="%" Name="pag_nome" Type="String" />
+                        <asp:Parameter DefaultValue="BASE" Name="pag_menu" Type="String" />
+                    </SelectParameters>
+                </asp:ObjectDataSource>
+            </div>
+        </div>
+        <!-- end menu rodape -->
+    </div>
+    <!-- end page -->
+    <div id="footer">
+        <p class="legal">
+            ©&nbsp;<asp:Label ID="LabelCopyright" runat="server"></asp:Label>&nbsp;- Todos os
+            direitos reservados.</p>
+        <p class="rwd">
+            Produzido por: <a href="http://www.rwd.net.br" title="Criação de Sites" target="_blank">RWD</a></p>
+    </div>
+    </form>
+</body>
+</html>
